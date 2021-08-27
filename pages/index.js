@@ -3,7 +3,6 @@ import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import Result from "../components/Result/index";
 import Link from "next/link";
-import NavBar from "../components/NavBar";
 
 export default function Home() {
   const [values, setValue] = useState({
@@ -41,25 +40,24 @@ export default function Home() {
 
   return (
     <>
-      <NavBar></NavBar>
       <div>
-        <h1 className="title">This is a form to do mathematical operations</h1>
-        <select className="form" name="select" onChange={handleChange}>
-          <option value="">Select operation</option>
-          <option value="sum">Sum</option>
-          <option value="rest">Rest</option>
-          <option value="div">divide</option>
-          <option value="mult">multiplication</option>
+        <h1 className='title'>This is a form to do mathematical operations</h1>
+        <select className='form' name='select' onChange={handleChange}>
+          <option value=''>Select operation</option>
+          <option value='sum'>Sum</option>
+          <option value='rest'>Rest</option>
+          <option value='div'>divide</option>
+          <option value='mult'>multiplication</option>
         </select>
         <input
-          type="text"
-          name="num1"
+          type='text'
+          name='num1'
           value={values.num1}
           onChange={handleChange}
         ></input>
         <input
-          type="text"
-          name="num2"
+          type='text'
+          name='num2'
           value={values.num2}
           onChange={handleChange}
         ></input>
@@ -71,7 +69,7 @@ export default function Home() {
       </p>
       <Result result={values.result}></Result>
 
-      <Link href="/characters">
+      <Link href='/characters'>
         <a>Characters of Rick and Morty</a>
       </Link>
 
