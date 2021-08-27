@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import Result from "../components/Result/index";
 import Link from "next/link";
+import NavBar from "../components/NavBar";
 
 export default function Home() {
   const [values, setValue] = useState({
@@ -40,8 +41,9 @@ export default function Home() {
 
   return (
     <>
-      <h1 className="title">This is a form to do mathematical operations</h1>
+      <NavBar></NavBar>
       <div>
+        <h1 className="title">This is a form to do mathematical operations</h1>
         <select className="form" name="select" onChange={handleChange}>
           <option value="">Select operation</option>
           <option value="sum">Sum</option>
