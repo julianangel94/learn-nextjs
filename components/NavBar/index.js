@@ -1,41 +1,72 @@
-export default function NavBar(props) {
+import { useState } from "react";
+
+export default function NavBar() {
+  const [active, setActive] = useState("home");
+
+  const handleClick = (e) => {
+    setActive(e.target.name);
+  };
+
   return (
     <>
       <nav>
-        <a className="active" href="#home">
+        <a
+          className={active === "home" ? "active" : ""}
+          name='home'
+          href='#home'
+          onClick={handleClick}
+        >
           Home
         </a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <a
+          className={active === "news" ? "active" : ""}
+          name='news'
+          href='#news'
+          onClick={handleClick}
+        >
+          News
+        </a>
+        <a
+          className={active === "contact" ? "active" : ""}
+          name='contact'
+          href='#contact'
+          onClick={handleClick}
+        >
+          Contact
+        </a>
+        <a
+          className={active === "about" ? "active" : ""}
+          href='#about'
+          name='about'
+          onClick={handleClick}
+        >
+          About
+        </a>
       </nav>
 
       <style jsx>{`
         nav {
           background-color: #0088cc;
-          height: 3.5rem;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
         }
 
-        nav a {
-          float: left;
+        a {
           color: #f2f2f2;
-          text-align: center;
-          padding: 14px 16px;
+          padding: 1rem;
           text-decoration: none;
           font-size: 17px;
         }
 
-        a {
-          height: 100%;
-        }
-
-        nav a:hover {
+        a:hover {
           background-color: #ddd;
           color: black;
         }
 
-        nav a.active {
-          background-color: #04aa6d;
+        a.active {
+          background-color: red;
           color: white;
         }
       `}</style>
